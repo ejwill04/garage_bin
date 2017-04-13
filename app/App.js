@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import GarageDoor from './GarageDoor'
 
 export default class App extends Component {
   constructor() {
@@ -6,16 +7,17 @@ export default class App extends Component {
     this.state = {
       doorOpen: false,
     }
+    this.changeDoorStatus = this.changeDoorStatus.bind(this)
+  }
+
+  changeDoorStatus() {
+    this.setState({ doorOpen: !this.state.doorOpen })
   }
 
   render() {
     return (
       <div>
-        <section id='garage-door'
-                 className={this.state.doorOpen ? 'open' : ''}
-                 onClick={() => this.setState({ doorOpen: !this.state.doorOpen })}>
-          Click Door to {this.state.doorOpen ? 'Open' : 'Close'}
-        </section>
+        <GarageDoor doorOpen={this.state.doorOpen} changeDoorStatus={this.changeDoorStatus} />
       </div>
     )
   }
