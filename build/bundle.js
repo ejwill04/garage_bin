@@ -22243,7 +22243,7 @@
 	    value: function getItems() {
 	      var _this2 = this;
 
-	      fetch('https://garage-bin.herokuapp.com/api/v1/items', { method: 'GET' }).then(function (response) {
+	      fetch('/api/v1/items', { method: 'GET' }).then(function (response) {
 	        return response.json();
 	      }).then(function (payload) {
 	        return _this2.setState({ items: payload });
@@ -22254,7 +22254,7 @@
 	    value: function postAnItem(cleanliness, name, reason) {
 	      var _this3 = this;
 
-	      fetch('https://garage-bin.herokuapp.com/api/v1/items', {
+	      fetch('/api/v1/items', {
 	        headers: {
 	          'Accept': 'application/json',
 	          'Content-Type': 'application/json'
