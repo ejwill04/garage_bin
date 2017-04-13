@@ -11,9 +11,9 @@ export default class ItemDetails extends Component {
   render() {
     return (
       <div>
-        <input value={this.props.item.name} />
-        <input>{this.props.item.cleanliness}</input>
-        <input>{this.props.item.reason}</input>
+        <div>{this.props.item.name}</div>
+        <div>{this.props.item.cleanliness}</div>
+        <div>{this.props.item.reason}</div>
         <RaisedButton label="Update" onClick={() => update} />
       </div>
     )
