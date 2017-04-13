@@ -21,14 +21,14 @@ export default class App extends Component {
   }
 
   getItems() {
-    fetch('/api/v1/items',
+    fetch('https://garage-bin.herokuapp.com/api/v1/items',
     {method: 'GET'})
     .then((response) => response.json())
     .then((payload) => this.setState({ items: payload }))
   }
 
   postAnItem(cleanliness, name, reason) {
-    fetch('/api/v1/items',
+    fetch('https://garage-bin.herokuapp.com/api/v1/items',
     {
       headers: {
         'Accept': 'application/json',
@@ -57,7 +57,7 @@ export default class App extends Component {
         <div>Rancid: {this.counter('Rancid')}</div>
         <div>Dusty: {this.counter('Dusty')}</div>
         <div>Sparkling: {this.counter('Sparkling')}</div>
-        {/* <GarageDoor doorOpen={this.state.doorOpen} changeDoorStatus={this.changeDoorStatus} /> */}
+        <GarageDoor doorOpen={this.state.doorOpen} changeDoorStatus={this.changeDoorStatus} />
         <AddAnItem postAnItem={this.postAnItem} />
         <DisplayItems items={this.state.items} />
       </div>
