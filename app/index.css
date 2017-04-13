@@ -22,3 +22,17 @@ body {
   transition-duration: 2s;
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
+
+.items-wrapper {
+  margin-left: 30%;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-wrapper {
+  border: 1px solid black;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+}

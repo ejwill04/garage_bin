@@ -17,7 +17,7 @@ export default class DisplayItems extends Component {
       )
     })
     return (
-      <div>
+      <div className='items-wrapper'>
         {items}
       </div>
     )
