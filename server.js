@@ -31,6 +31,34 @@ app.get('/', (request, response) => {
   })
 })
 
+// get all items
+app.get('/api/v1/items', (request, response) => {
+  database('items').select()
+  .then(items => {
+    response.status(200).json(items)
+  })
+  .catch(error => {
+    console.error('error', error)
+  })
+})
+
+// post an item
+app.post('/api/v1/items', (request, response) => {
+  const { name, reason, cleanliness } = request.body;
+  const item = { name, reason, cleanliness }
+
+  database('items').insert(item)
+  .then(() => {
+    database('items').select()
+    .then(items => {
+      response.status(200).json(items)
+    })
+  })
+  .catch(error => {
+    response.status(422).send('Could not add item')
+  })
+})
+
 if (!module.parent) {
   app.listen(app.get('port'), () => {
     console.log(`Garage Bin is running on ${app.get('port')}.`)

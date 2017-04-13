@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import GarageDoor from './GarageDoor'
+import AddAnItem from './AddAnItem'
 
 export default class App extends Component {
   constructor() {
@@ -18,6 +19,7 @@ export default class App extends Component {
     return (
       <div>
         <GarageDoor doorOpen={this.state.doorOpen} changeDoorStatus={this.changeDoorStatus} />
+        <AddAnItem />
       </div>
     )
   }
