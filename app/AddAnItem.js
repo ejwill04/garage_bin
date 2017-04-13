@@ -8,7 +8,7 @@ export default class AddAnItem extends Component {
   constructor() {
     super()
     this.state = {
-      dropDownSelection: '',
+      cleanliness: '',
       name: '',
       reason: ''
     }
@@ -16,8 +16,8 @@ export default class AddAnItem extends Component {
   }
 
   disabledStatus() {
-    let { dropDownSelection, name, reason } = this.state
-    if (dropDownSelection !== '' && name !== '' && reason !== '') {
+    let { cleanliness, name, reason } = this.state
+    if (cleanliness !== '' && name !== '' && reason !== '') {
       return false
     } else {
       return true
@@ -25,27 +25,31 @@ export default class AddAnItem extends Component {
   }
 
   render() {
+    let { cleanliness, name, reason } = this.state
     return (
       <div className='add-item-wrapper'>
         <h2>Add An Item!</h2>
-        <TextField
-          hintText='skis, pet rocks, dinosaurs'
-          floatingLabelText='Name'
-          onChange={(e, newValue) => this.setState({ name :newValue })}
+        <TextField hintText='skis, pet rocks, dinosaurs'
+                   floatingLabelText='Name'
+                   onChange={(e, newValue) => this.setState({ name :newValue })}
          />
-        <TextField
-          hintText='I find my worth in things'
-          floatingLabelText='Reason'
-          onChange={(e, newValue) => this.setState({ reason: newValue })}
+        <TextField hintText='I find my worth in things'
+                   floatingLabelText='Reason'
+                   onChange={(e, newValue) => this.setState({ reason: newValue })}
         />
         <SelectField floatingLabelText='Frequency'
-                     value={this.state.dropDownSelection}
-                     onChange={(e, i, value) => this.setState({ dropDownSelection: value })}>
-            <MenuItem value='Sparkling' primaryText='Sparkling' />
-            <MenuItem value='Dusty' primaryText='Dusty' />
-            <MenuItem value='Rancid' primaryText='Rancid' />
+                     value={this.state.cleanliness}
+                     onChange={(e, i, value) => this.setState({ cleanliness: value })}>
+            <MenuItem value='Sparkling'
+                      primaryText='Sparkling' />
+            <MenuItem value='Dusty'
+                      primaryText='Dusty' />
+            <MenuItem value='Rancid'
+                      primaryText='Rancid' />
         </SelectField>
-        <RaisedButton label='Pile it on' disabled={this.disabledStatus()} />
+        <RaisedButton label='Pile it on'
+                      onClick={() => this.props.postAnItem(cleanliness, name, reason)}
+                      disabled={this.disabledStatus()} />
       </div>
     )
   }
