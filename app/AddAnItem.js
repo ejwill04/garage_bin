@@ -37,7 +37,7 @@ export default class AddAnItem extends Component {
                    floatingLabelText='Reason'
                    onChange={(e, newValue) => this.setState({ reason: newValue })}
         />
-        <SelectField floatingLabelText='Frequency'
+        <SelectField floatingLabelText='Cleanliness'
                      value={this.state.cleanliness}
                      onChange={(e, i, value) => this.setState({ cleanliness: value })}>
             <MenuItem value='Sparkling'

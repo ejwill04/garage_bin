@@ -35,7 +35,7 @@ app.get('/', (request, response) => {
 app.get('/api/v1/items', (request, response) => {
   database('items').select()
   .then(items => {
-    response.status(200).json(items)
+    response.status(200).json(items).orderBy('name', 'asc')
   })
   .catch(error => {
     console.error('error', error)
@@ -49,7 +49,7 @@ app.post('/api/v1/items', (request, response) => {
 
   database('items').insert(item)
   .then(() => {
-    database('items').select()
+    database('items').select().orderBy('name', 'asc')
     .then(items => {
       response.status(200).json(items)
     })
