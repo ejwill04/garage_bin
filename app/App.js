@@ -17,6 +17,7 @@ export default class App extends Component {
     this.getItems = this.getItems.bind(this)
     this.counter = this.counter.bind(this)
     this.sortItems = this.sortItems.bind(this)
+    this.updateItem = this.updateItem.bind(this)
   }
 
   componentDidMount() {
@@ -71,6 +72,21 @@ export default class App extends Component {
     return this.state.items.filter(item => item.cleanliness === cleanliness).length
   }
 
+  updateItem(item, id) {
+    let { name, reason, cleanliness } = item
+    fetch(`http://localhost:3000/api/v1/items/${id}`,
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'PUT',
+      body: JSON.stringify(item),
+    })
+    .then((response) => response.json())
+    .then((payload) => console.log(payload))
+  }
+
   render() {
     return (
       <div>
@@ -83,9 +99,8 @@ export default class App extends Component {
                       onClick={() => this.sortItems()} />
         <GarageDoor doorOpen={this.state.doorOpen} changeDoorStatus={this.changeDoorStatus} />
         <AddAnItem postAnItem={this.postAnItem} />
-        <DisplayItems items={this.state.items} />
+        <DisplayItems items={this.state.items} updateItem={this.updateItem} />
       </div>
     )
   }
-
 }

@@ -13,7 +13,7 @@ export default class DisplayItems extends Component {
   render() {
     let items = this.props.items.map((item, i) => {
       return (
-          <Item item={item} key={i}/>
+          <Item item={item} updateItem={this.props.updateItem} key={i}/>
       )
     })
     return (

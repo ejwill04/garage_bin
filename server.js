@@ -13,7 +13,8 @@ app.use(express.static('build'))
 
 app.use(function(req, res, next) {
  res.header("Access-Control-Allow-Origin", "*")
- res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+ res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT ,DELETE')
+ res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
  next()
 })
 
@@ -35,7 +36,7 @@ app.get('/', (request, response) => {
 app.get('/api/v1/items', (request, response) => {
   database('items').select()
   .then(items => {
-    response.status(200).json(items).orderBy('name', 'asc')
+    response.status(200).json(items)
   })
   .catch(error => {
     console.error('error', error)
@@ -49,13 +50,31 @@ app.post('/api/v1/items', (request, response) => {
 
   database('items').insert(item)
   .then(() => {
-    database('items').select().orderBy('name', 'asc')
+    database('items').select()
     .then(items => {
       response.status(200).json(items)
     })
   })
   .catch(error => {
     response.status(422).send('Could not add item')
+  })
+})
+
+// update item
+app.put('/api/v1/items/:id', (request, response) => {
+  const { id } = request.params
+  const { name, reason, cleanliness } = request.body
+  const item = { name, reason, cleanliness }
+
+  database('items').where('id', id).update(item)
+  .then(() => {
+    database('items').select()
+      .then(items =>
+        response.status(200).json(items)
+      )
+  })
+  .catch(error => {
+    response.status(422).send('Could not update item')
   })
 })
 
