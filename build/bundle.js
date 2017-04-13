@@ -22243,7 +22243,7 @@
 	    value: function getItems() {
 	      var _this2 = this;
 
-	      fetch('/api/v1/items', { method: 'GET' }).then(function (response) {
+	      fetch('https://garage-bin.herokuapp.com/api/v1/items', { method: 'GET' }).then(function (response) {
 	        return response.json();
 	      }).then(function (payload) {
 	        return _this2.setState({ items: payload });
@@ -22254,7 +22254,7 @@
 	    value: function postAnItem(cleanliness, name, reason) {
 	      var _this3 = this;
 
-	      fetch('/api/v1/items', {
+	      fetch('https://garage-bin.herokuapp.com/api/v1/items', {
 	        headers: {
 	          'Accept': 'application/json',
 	          'Content-Type': 'application/json'
@@ -22314,6 +22314,7 @@
 	          'Sparkling: ',
 	          this.counter('Sparkling')
 	        ),
+	        _react2.default.createElement(_GarageDoor2.default, { doorOpen: this.state.doorOpen, changeDoorStatus: this.changeDoorStatus }),
 	        _react2.default.createElement(_AddAnItem2.default, { postAnItem: this.postAnItem }),
 	        _react2.default.createElement(_DisplayItems2.default, { items: this.state.items })
 	      );
