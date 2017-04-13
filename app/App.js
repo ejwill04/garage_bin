@@ -4,13 +4,18 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
+      doorOpen: false,
     }
   }
 
   render() {
     return (
       <div>
-        <h1>Hello world</h1>
+        <section id='garage-door'
+                 className={this.state.doorOpen ? 'open' : ''}
+                 onClick={() => this.setState({ doorOpen: !this.state.doorOpen })}>
+          Garage Door
+        </section>
       </div>
     )
   }

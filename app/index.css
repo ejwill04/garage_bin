@@ -1,3 +1,22 @@
 body {
   background-color: lightgray;
 }
+
+#garage-door {
+  height: 80vh;
+  width: 100%;
+  background: repeating-linear-gradient(
+    #434130,
+    #434130 40px,
+    #5B5941 40px,
+    #5B5941 80px
+  );
+}
+
+#garage-door.open {
+	max-height: 40px;
+  overflow-y: hidden;
+  transition-property: all;
+  transition-duration: 2s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
