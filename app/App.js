@@ -21,14 +21,14 @@ export default class App extends Component {
   }
 
   getItems() {
-    fetch('https://garage-bin.herokuapp.com/api/v1/items',
+    fetch('/api/v1/items',
     {method: 'GET'})
     .then((response) => response.json())
     .then((payload) => this.setState({ items: payload }))
   }
 
   postAnItem(cleanliness, name, reason) {
-    fetch('https://garage-bin.herokuapp.com/api/v1/items',
+    fetch('/api/v1/items',
     {
       headers: {
         'Accept': 'application/json',
