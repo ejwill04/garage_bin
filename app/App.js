@@ -14,7 +14,7 @@ export default class App extends Component {
         <section id='garage-door'
                  className={this.state.doorOpen ? 'open' : ''}
                  onClick={() => this.setState({ doorOpen: !this.state.doorOpen })}>
-          Garage Door
+          Click Door to {this.state.doorOpen ? 'Open' : 'Close'}
         </section>
       </div>
     )

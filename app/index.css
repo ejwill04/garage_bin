@@ -11,6 +11,8 @@ body {
     #5B5941 40px,
     #5B5941 80px
   );
+  text-align: center;
+  color: #fff;
 }
 
 #garage-door.open {
