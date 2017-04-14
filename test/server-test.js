@@ -79,3 +79,28 @@ describe('POST /api/v1/items', () => {
     })
   })
 })
+
+describe('PUT /api/v1/items/:id', () => {
+  beforeAndAfterEach()
+
+  it('should PUT an existing item', (done) => {
+    let item = {
+      name: 'cycling rims',
+      reason: 'now',
+      cleanliness: 'Rancid'
+    }
+
+    chai.request(app)
+    .put('/api/v1/items/1')
+    .send(item)
+    .end((err, res) => {
+      if(err) { return done(err) }
+      expect(res).to.have.status(200);
+      expect(res).to.be.json;
+      expect(res.body).to.be.a('array');
+      expect(res.body[0].name).to.equal('cycling rims');
+      expect(res.body.length).to.equal(1);
+      done();
+    })
+  })
+})

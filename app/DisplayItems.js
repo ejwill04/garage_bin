@@ -8,8 +8,6 @@ export default class DisplayItems extends Component {
     }
   }
 
-
-
   render() {
     let items = this.props.items.map((item, i) => {
       return (
