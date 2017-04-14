@@ -57,7 +57,7 @@ export default class Item extends Component {
                        updateName={this.updateName}
                        updateReason={this.updateReason}
                        updateCleanliness={this.updateCleanliness}/> :
-          <div>{this.props.item.name}</div> }
+          <div className='item-name'>{this.props.item.name}</div> }
         <ButtonToggle label={this.state.buttonLabel} actionHandler={this.toggleUpdate} />
       </div>
     )

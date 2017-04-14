@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
   background-color: lightgray;
+  font-family: 'Roboto', sans-serif;
 }
 
 .app {
@@ -12,6 +15,7 @@ body {
 
 .left-pane {
   text-align: center;
+  margin-right: 20px;
 }
 
 #garage-door {
@@ -27,14 +31,15 @@ body {
   );
   text-align: center;
   color: #fff;
+  padding-top: 4px;
 }
 
 #garage-door.open {
 	max-height: 40px;
-  overflow-y: hidden;
-  transition-property: all;
-  transition-duration: 10s;
-  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.btn {
+  margin: 10px;
 }
 
 .items-wrapper {
@@ -51,7 +56,7 @@ body {
   margin: 10px;
   text-align: center;
   padding: 20px;
-  background-color: #fff;
+  background-color: #f4a460;
 }
 
 .add-item-wrapper {
@@ -65,4 +70,9 @@ body {
   text-align: center;
   flex-direction: column;
   width: 100%;
+}
+
+.item-name {
+  font-size: 20px;
+  margin: 10px;
 }
