@@ -84,7 +84,7 @@ export default class App extends Component {
       body: JSON.stringify(item),
     })
     .then((response) => response.json())
-    .then((payload) => console.log(payload))
+    .then((payload) => this.setState({ items: payload }))
   }
 
   render() {
