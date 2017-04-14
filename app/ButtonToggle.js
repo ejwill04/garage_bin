@@ -4,8 +4,6 @@ import RaisedButton from 'material-ui/RaisedButton'
 export default class ButtonToggle extends Component {
   constructor() {
     super()
-    this.state = {
-    }
   }
 
   render() {
