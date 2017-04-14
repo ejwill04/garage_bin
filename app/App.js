@@ -90,7 +90,8 @@ export default class App extends Component {
   render() {
     return (
       <div className='app'>
-        <GarageDoor doorOpen={this.state.doorOpen} changeDoorStatus={this.changeDoorStatus} />
+        <GarageDoor doorOpen={this.state.doorOpen}
+                    changeDoorStatus={this.changeDoorStatus} />
         <div className='left-pane'>
           <div className='header-wrapper'>
             <h1>Garage</h1>
@@ -105,7 +106,8 @@ export default class App extends Component {
             <AddAnItem postAnItem={this.postAnItem} />
         </div>
         <div className='right-pane'>
-          <DisplayItems items={this.state.items} updateItem={this.updateItem} />
+          <DisplayItems items={this.state.items}
+                        updateItem={this.updateItem} />
         </div>
       </div>
     )
