@@ -30,14 +30,17 @@ export default class AddAnItem extends Component {
       <div className='add-item-wrapper'>
         <h2>Add An Item!</h2>
         <TextField hintText='skis, pet rocks, dinosaurs'
+                   className='field'
                    floatingLabelText='Name'
                    onChange={(e, newValue) => this.setState({ name :newValue })}
          />
         <TextField hintText='I find my worth in things'
+                   className='field'
                    floatingLabelText='Reason'
                    onChange={(e, newValue) => this.setState({ reason: newValue })}
         />
         <SelectField floatingLabelText='Cleanliness'
+                     className='field'
                      value={this.state.cleanliness}
                      onChange={(e, i, value) => this.setState({ cleanliness: value })}>
             <MenuItem value='Sparkling'
@@ -48,6 +51,7 @@ export default class AddAnItem extends Component {
                       primaryText='Rancid' />
         </SelectField>
         <RaisedButton label='Pile it on'
+                      className='btn'
                       onClick={() => this.props.postAnItem(cleanliness, name, reason)}
                       disabled={this.disabledStatus()} />
       </div>

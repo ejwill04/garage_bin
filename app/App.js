@@ -89,17 +89,24 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='app'>
         <GarageDoor doorOpen={this.state.doorOpen} changeDoorStatus={this.changeDoorStatus} />
-        <h1>Garage</h1>
-        <div>Total Items: {this.state.items.length}</div>
-        <div>Rancid: {this.counter('Rancid')}</div>
-        <div>Dusty: {this.counter('Dusty')}</div>
-        <div>Sparkling: {this.counter('Sparkling')}</div>
-        <RaisedButton label='Sort'
-                      onClick={() => this.sortItems()} />
-        <AddAnItem postAnItem={this.postAnItem} />
-        <DisplayItems items={this.state.items} updateItem={this.updateItem} />
+        <div className='left-pane'>
+          <div className='header-wrapper'>
+            <h1>Garage</h1>
+            <div>Total Items: {this.state.items.length}</div>
+            <div>Rancid: {this.counter('Rancid')}</div>
+            <div>Dusty: {this.counter('Dusty')}</div>
+            <div>Sparkling: {this.counter('Sparkling')}</div>
+          </div>
+          <RaisedButton label='Sort'
+                        className='btn sort-btn'
+                        onClick={() => this.sortItems()} />
+            <AddAnItem postAnItem={this.postAnItem} />
+        </div>
+        <div className='right-pane'>
+          <DisplayItems items={this.state.items} updateItem={this.updateItem} />
+        </div>
       </div>
     )
   }

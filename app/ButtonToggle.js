@@ -10,7 +10,7 @@ export default class ButtonToggle extends Component {
 
   render() {
     return (
-      <RaisedButton label={this.props.label} onClick={() => this.props.actionHandler()} />
+      <RaisedButton className='btn' label={this.props.label} onClick={() => this.props.actionHandler()} />
     )
   }
 }

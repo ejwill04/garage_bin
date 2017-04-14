@@ -2,8 +2,22 @@ body {
   background-color: lightgray;
 }
 
+.app {
+  display: flex;
+}
+
+.left-pane, .right-pane {
+  margin-top: 40px;
+}
+
+.left-pane {
+  text-align: center;
+}
+
 #garage-door {
-  height: 80vh;
+  position: absolute;
+  z-index: 10;
+  height: 100%;
   width: 100%;
   background: repeating-linear-gradient(
     #434130,
@@ -19,13 +33,13 @@ body {
 	max-height: 40px;
   overflow-y: hidden;
   transition-property: all;
-  transition-duration: 2s;
+  transition-duration: 10s;
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 
 .items-wrapper {
-  margin-left: 30%;
-  width: 70%;
+  /*margin-left: 30%;*/
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -35,4 +49,20 @@ body {
   width: 300px;
   height: 300px;
   margin: 10px;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.add-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header-wrapper {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  width: 100%;
 }

@@ -14,14 +14,17 @@ export default class ItemDetails extends Component {
     return (
       <div>
         <TextField name={this.props.name}
+                   className='field'
                    defaultValue={this.props.name}
                    onChange={(e, newValue) => this.props.updateName(newValue)}
          />
          <TextField name={this.props.reason}
+                    className='field'
                     defaultValue={this.props.reason}
                     onChange={(e, newValue) => this.props.updateReason(newValue)}
           />
         <SelectField name={this.props.cleanliness}
+                     className='field'
                      value={this.props.cleanliness}
                      onChange={(e, i, value) => this.props.updateCleanliness(value)}>
             <MenuItem value='Sparkling'
